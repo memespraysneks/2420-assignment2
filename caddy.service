@@ -1,0 +1,13 @@
+[Unit]
+Description=Work as intended and help me run my js based server
+After=network.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
+ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile --force
+TimeoutStopSec=5
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target

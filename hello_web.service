@@ -1,0 +1,13 @@
+[Unit]
+Description=Run a js file to serve an HTML file with Caddy
+After=network.target
+
+[Service]
+User=droplet
+Group=droplet
+Type=notify
+ExecStart=/home/droplet/.volta/bin/node /home/droplet/assignment/src/index.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
